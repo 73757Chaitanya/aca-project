@@ -1,16 +1,111 @@
-# React + Vite
+# ACA – Advanced Computing Academy
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+ACA (Advanced Computing Academy) is a full-stack EdTech platform inspired by modern learning portals. The platform allows students to apply for professional programs, enroll in modular courses, register for placement opportunities, and make secure online payments.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+It also provides an admin dashboard for managing student data, admissions, enrollments, and payments.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+### Student Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Program Admissions Registration
+- Modular Course Enrollment
+- Placement Registration Portal
+- Resume Upload (PDF)
+- Profile Picture Upload
+- Secure Online Payment Gateway Integration
+- Responsive Mobile-Friendly Interface
+
+### Admin Features
+
+- Secure Admin Login
+- Protected Dashboard
+- View Admissions Data
+- View Modular Enrollments
+- View Placement Applications
+- Payment Analytics
+- Delete Student Records
+- Logout Functionality
+
+---
+
+## Tech Stack
+
+### Frontend
+
+- React.js
+- Vite
+- Tailwind CSS
+- Framer Motion
+- React Router DOM
+
+### Backend
+
+- Node.js
+- Express.js
+- REST API Architecture
+
+### Database
+
+- MySQL
+
+### Other Integrations
+
+- Razorpay Payment Gateway
+- Multer File Upload Middleware
+- Git & GitHub
+
+---
+
+## Modules Implemented
+
+- Admissions Module
+- Modular Courses Module
+- Placement Portal Module
+- Payment Gateway Module
+- Authentication Module
+- Admin Dashboard Module
+
+---
+
+## Future Enhancements
+
+- Email Notifications
+- Course Completion Certificates
+- Student Dashboard
+- AI Career Guidance Chatbot
+- Live Placement Tracker
+
+---
+
+## Installation
+
+### Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+### Backend
+
+```bash
+cd backend
+npm install
+npm start
+```
+
+---
+
+## Developer
+
+**Chaitanya Vijay Ubale**
+
+Full Stack Developer Project built for portfolio and career opportunities.
+
+---
