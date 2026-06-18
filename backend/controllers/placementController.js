@@ -5,13 +5,45 @@ const createPlacementApplication = (req, res) => {
     name,
     email,
     phone,
+    qualification,
+    passout_year,
+    university,
+    branch,
     course,
     preferred_role,
     skills,
+    experience,
   } = req.body;
 
-  const sql =
-    "INSERT INTO placement_applications (name,email,phone,course,preferred_role,skills) VALUES (?,?,?,?,?,?)";
+  const resume =
+    req.files["resume"]
+      ? req.files["resume"][0].filename
+      : null;
+
+  const profile_pic =
+    req.files["profile_pic"]
+      ? req.files["profile_pic"][0].filename
+      : null;
+
+  const sql = `
+    INSERT INTO placement_applications
+    (
+      name,
+      email,
+      phone,
+      qualification,
+      passout_year,
+      university,
+      branch,
+      course,
+      preferred_role,
+      skills,
+      experience,
+      resume,
+      profile_pic
+    )
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  `;
 
   db.query(
     sql,
@@ -19,9 +51,16 @@ const createPlacementApplication = (req, res) => {
       name,
       email,
       phone,
+      qualification,
+      passout_year,
+      university,
+      branch,
       course,
       preferred_role,
       skills,
+      experience,
+      resume,
+      profile_pic,
     ],
     (err, result) => {
       if (err) {
@@ -33,7 +72,8 @@ const createPlacementApplication = (req, res) => {
       }
 
       res.status(201).json({
-        message: "Placement application submitted successfully",
+        message:
+          "Placement application submitted successfully",
       });
     }
   );

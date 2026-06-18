@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import navbarLogo from "../assets/logos/navbar-logo.png";
 
 function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <nav
       className="
@@ -15,13 +22,14 @@ function Navbar() {
         shadow-sm
       "
     >
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="max-w-7xl mx-auto px-6">
 
         <div className="flex items-center justify-between min-h-[90px]">
 
           {/* LOGO */}
           <Link
             to="/"
+            onClick={closeMenu}
             className="
               flex
               items-center
@@ -33,127 +41,53 @@ function Navbar() {
             <img
               src={navbarLogo}
               alt="ACA Logo"
-              className="h-24 w-auto object-contain"
+              className="h-20 md:h-24 w-auto object-contain"
             />
           </Link>
 
-          {/* NAV LINKS */}
+          {/* DESKTOP MENU */}
           <div
             className="
-              flex
+              hidden
+              md:flex
               items-center
               gap-10
               font-medium
               text-slate-700
             "
           >
-
-            {/* HOME */}
-            <Link
-              to="/"
-              className="
-                relative
-                hover:text-cyan-600
-                transition-all
-                duration-300
-                after:absolute
-                after:left-0
-                after:-bottom-2
-                after:w-0
-                after:h-[2px]
-                after:bg-cyan-500
-                after:transition-all
-                hover:after:w-full
-              "
-            >
+            <Link to="/" className="hover:text-cyan-600 transition-all">
               Home
             </Link>
 
-            {/* PROGRAMS */}
             <Link
               to="/programs"
-              className="
-                relative
-                hover:text-cyan-600
-                transition-all
-                duration-300
-                after:absolute
-                after:left-0
-                after:-bottom-2
-                after:w-0
-                after:h-[2px]
-                after:bg-cyan-500
-                after:transition-all
-                hover:after:w-full
-              "
+              className="hover:text-cyan-600 transition-all"
             >
               Programs
             </Link>
 
-            {/* ADMISSIONS */}
             <Link
               to="/admissions"
-              className="
-                relative
-                hover:text-cyan-600
-                transition-all
-                duration-300
-                after:absolute
-                after:left-0
-                after:-bottom-2
-                after:w-0
-                after:h-[2px]
-                after:bg-cyan-500
-                after:transition-all
-                hover:after:w-full
-              "
+              className="hover:text-cyan-600 transition-all"
             >
               Admissions
             </Link>
 
-            {/* PLACEMENTS */}
             <Link
               to="/placements"
-              className="
-                relative
-                hover:text-cyan-600
-                transition-all
-                duration-300
-                after:absolute
-                after:left-0
-                after:-bottom-2
-                after:w-0
-                after:h-[2px]
-                after:bg-cyan-500
-                after:transition-all
-                hover:after:w-full
-              "
+              className="hover:text-cyan-600 transition-all"
             >
               Placements
             </Link>
 
-            {/* CONTACT */}
             <Link
               to="/contact"
-              className="
-                relative
-                hover:text-cyan-600
-                transition-all
-                duration-300
-                after:absolute
-                after:left-0
-                after:-bottom-2
-                after:w-0
-                after:h-[2px]
-                after:bg-cyan-500
-                after:transition-all
-                hover:after:w-full
-              "
+              className="hover:text-cyan-600 transition-all"
             >
               Contact
             </Link>
 
-            {/* LOGIN */}
             <Link
               to="/login"
               className="
@@ -167,18 +101,74 @@ function Navbar() {
                 font-semibold
                 shadow-lg
                 hover:scale-105
-                hover:shadow-xl
                 transition-all
-                duration-300
               "
             >
               Login →
             </Link>
-
           </div>
 
+          {/* MOBILE HAMBURGER */}
+          <button
+            className="md:hidden text-3xl"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            ☰
+          </button>
         </div>
 
+        {/* MOBILE MENU */}
+        {menuOpen && (
+          <div
+            className="
+              md:hidden
+              flex
+              flex-col
+              gap-5
+              py-6
+              text-slate-700
+              font-medium
+              border-t
+            "
+          >
+            <Link to="/" onClick={closeMenu}>
+              Home
+            </Link>
+
+            <Link to="/programs" onClick={closeMenu}>
+              Programs
+            </Link>
+
+            <Link to="/admissions" onClick={closeMenu}>
+              Admissions
+            </Link>
+
+            <Link to="/placements" onClick={closeMenu}>
+              Placements
+            </Link>
+
+            <Link to="/contact" onClick={closeMenu}>
+              Contact
+            </Link>
+
+            <Link
+              to="/login"
+              onClick={closeMenu}
+              className="
+                bg-gradient-to-r
+                from-cyan-500
+                to-blue-600
+                text-white
+                px-5
+                py-3
+                rounded-xl
+                text-center
+              "
+            >
+              Login →
+            </Link>
+          </div>
+        )}
       </div>
     </nav>
   );
